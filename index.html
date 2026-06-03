@@ -1,0 +1,738 @@
+
+                        <!DOCTYPE html>
+                        <html lang="en">
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+							<style>
+								body {
+									background-color: white; /* Ensure the iframe has a white background */
+								}
+
+								
+							</style>
+                        </head>
+                        <body>
+                            <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>国药四川智能助手 & 运维百晓生 - 使用手册</title>
+    <style>
+        :root {
+            /* Green Theme (Default - 国药四川智能助手) */
+            --primary-color: #00695c;
+            --secondary-color: #004d40;
+            --accent-color: #80cbc4;
+            --security-color: #d84315;
+            --bg-color: #f0f2f5;
+            --text-color: #333333;
+            --white: #ffffff;
+            --chat-user-bg: #95ec69;
+            --chat-ai-bg: #ffffff;
+            --chart-color-1: #00695c;
+            --chart-color-2: #004d40;
+            --chart-color-3: #4db6ac;
+            --light-gray: #f5f5f5;
+            --border-color: #e0e0e0;
+        }
+
+        /* Blue Theme (Override - 四川运维百晓生) */
+        .theme-blue {
+            --primary-color: #1976d2;
+            --secondary-color: #1565c0;
+            --accent-color: #64b5f6;
+            --security-color: #0277bd;
+            --chat-user-bg: #bbdefb;
+            --chart-color-1: #1976d2;
+            --chart-color-2: #1565c0;
+            --chart-color-3: #42a5f5;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--white);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+            letter-spacing: 2px;
+        }
+        header .subtitle {
+            margin-top: 10px;
+            opacity: 0.9;
+            font-size: 16px;
+        }
+        header a {
+            color: #fff;
+            text-decoration: underline;
+            margin-top: 10px;
+            display: inline-block;
+        }
+        /* Security Badge */
+        .security-banner {
+            background-color: #ffebee;
+            color: var(--security-color);
+            padding: 15px 30px;
+            text-align: center;
+            font-weight: bold;
+            border-bottom: 1px solid #ffcdd2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .theme-blue .security-banner {
+            background-color: #e3f2fd;
+            border-bottom-color: #bbdefb;
+        }
+        .security-icon {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+        /* Sections */
+        .section {
+            padding: 40px 30px;
+            border-bottom: 1px solid #eeeeee;
+        }
+        .section-title {
+            color: var(--primary-color);
+            font-size: 22px;
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-color);
+            margin: 10px auto 0;
+        }
+        .section-intro {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .feature-card {
+            background: #fafafa;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-color: var(--accent-color);
+        }
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            color: var(--white);
+        }
+        .feature-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: currentColor;
+        }
+        .feature-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        .feature-desc {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .feature-example {
+            font-size: 12px;
+            color: #888;
+            background: #fff;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px dashed #ccc;
+        }
+        /* Demo Area */
+        .demo-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        @media (max-width: 768px) {
+            .demo-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        .demo-box {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #fff;
+        }
+        .demo-header {
+            background: #f5f5f5;
+            padding: 10px 15px;
+            font-weight: bold;
+            color: #555;
+            border-bottom: 1px solid #ddd;
+            font-size: 14px;
+        }
+        .demo-content {
+            padding: 20px;
+        }
+        .demo-note {
+            font-size: 12px;
+            color: #888;
+            text-align: center;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed #eee;
+        }
+        /* Chat UI */
+        .chat-window {
+            height: 250px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .chat-message {
+            max-width: 90%;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 13px;
+            line-height: 1.5;
+            position: relative;
+            word-wrap: break-word;
+        }
+        .chat-user {
+            align-self: flex-end;
+            background-color: var(--chat-user-bg);
+            color: #000;
+            border-bottom-right-radius: 2px;
+        }
+        .chat-ai {
+            align-self: flex-start;
+            background-color: var(--chat-ai-bg);
+            border: 1px solid #e0e0e0;
+            border-bottom-left-radius: 2px;
+        }
+        .chat-label {
+            font-size: 11px;
+            color: #999;
+            margin-bottom: 4px;
+            display: block;
+        }
+        /* Report Table */
+        .demo-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+        .demo-table th {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px;
+            text-align: left;
+        }
+        .demo-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            color: #333;
+        }
+        .demo-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        /* Charts */
+        .charts-wrapper {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            border-top: 1px dashed #eee;
+            padding-top: 20px;
+        }
+        .chart-box {
+            text-align: center;
+            flex: 1;
+            min-width: 0;
+        }
+        .chart-title {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        /* Pie Chart CSS */
+        .pie-chart {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: conic-gradient(
+                var(--chart-color-1) 0% 35%, 
+                var(--chart-color-2) 35% 70%, 
+                var(--chart-color-3) 70% 100%
+            );
+            margin: 0 auto;
+            position: relative;
+        }
+        .pie-chart::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: #fff;
+            border-radius: 50%;
+            top: 20px;
+            left: 20px;
+        }
+        /* Line Chart SVG */
+        .line-chart-svg {
+            width: 100%;
+            height: 100px;
+            border-left: 2px solid #ccc;
+            border-bottom: 2px solid #ccc;
+            position: relative;
+        }
+        .line-chart-svg polyline {
+            fill: none;
+            stroke: var(--primary-color);
+            stroke-width: 3;
+            vector-effect: non-scaling-stroke;
+        }
+        .line-chart-svg circle {
+            fill: var(--white);
+            stroke: var(--primary-color);
+            stroke-width: 2;
+        }
+        .axis-label {
+            font-size: 9px;
+            fill: #999;
+        }
+        /* Guidelines List */
+        .guidelines-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .guideline-item {
+            background: #f9fbfd;
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            border-radius: 4px;
+        }
+        .guideline-item h4 {
+            margin: 0 0 8px 0;
+            color: var(--secondary-color);
+            font-size: 16px;
+        }
+        .guideline-item p {
+            margin: 0;
+            font-size: 13px;
+            color: #555;
+        }
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .comparison-table th {
+            background-color: #eee;
+            color: #333;
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+        .comparison-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            vertical-align: top;
+        }
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .highlight-green { color: #00695c; font-weight: bold; }
+        .highlight-blue { color: #1976d2; font-weight: bold; }
+        
+        /* Footer */
+        .footer {
+            background: #333;
+            color: #aaa;
+            text-align: center;
+            padding: 30px;
+            font-size: 13px;
+        }
+        .footer p {
+            margin: 5px 0;
+        }
+        .highlight-text {
+            color: var(--security-color);
+            font-weight: bold;
+        }
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 8px;
+            font-size: 11px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .legend-color {
+            width: 10px;
+            height: 10px;
+            border-radius: 2px;
+        }
+        /* Info Box */
+        .info-box {
+            background: #e3f2fd;
+            border: 1px solid #90caf9;
+            color: #0d47a1;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        .theme-blue .info-box {
+            background: #e3f2fd;
+            border-color: #90caf9;
+            color: #0d47a1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header (Green Theme) -->
+        <header>
+            <h1>国药四川智能助手 & 运维百晓生</h1>
+            <div class="subtitle">双引擎驱动 · 高效办公 · 安全可控</div>
+            <a href="http://192.168.0.31:8000/">点击使用国药智能助手</a>
+        </header>
+        <div class="security-banner">
+            <svg class="security-icon" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 6c1.4 0 2.8 1.1 2.8 2.5V11c.6 0 1.2.6 1.2 1.2v3.5c0 .6-.6 1.2-1.2 1.2H9.2c-.6 0-1.2-.6-1.2-1.2v-3.5c0-.6.6-1.2 1.2-1.2V9.5C9.2 8.1 10.6 7 12 7zm0 1c-.8 0-1.5.7-1.5 1.5V11h3V9.5c0-.8-.7-1.5-1.5-1.5z"/></svg>
+            <span>本地化部署 · 数据不出域 · 全程安全可控</span>
+        </div>
+
+        <!-- ================= 第一部分：国药四川智能助手 (绿色主题) ================= -->
+        <div class="section">
+            <h2 class="section-title">国药四川智能助手</h2>
+            <p class="section-intro">国药四川智能助手集成三大核心能力，支持文件上传与文档深度处理。</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+                    </div>
+                    <div class="feature-name">智能问答</div>
+                    <div class="feature-desc">随时整理数据表格、起草公文文案，还是解答通用业务问题，像聊天一样简单。</div>
+                    <div class="feature-example">例：“差旅报销标准是多少？”</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+                    </div>
+                    <div class="feature-name">智能报表生成</div>
+                    <div class="feature-desc">一键生成表格，数据可视化，自动格式化数据。</div>
+                    <div class="feature-example">例：“根据附件生成上月销售统计报表”</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                    </div>
+                    <div class="feature-name">文档辅助撰写</div>
+                    <div class="feature-desc">协助起草通知、总结、邮件，提供内容建议，提升写作效率。</div>
+                    <div class="feature-example">例：“帮我写一份会议通知”</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">使用场景模拟</h2>
+            <div class="demo-container">
+                <!-- Chat Demo -->
+                <div class="demo-box">
+                    <div class="demo-header">💬 智能问答对话</div>
+                    <div class="demo-content">
+                        <div class="chat-window">
+                            <div class="chat-message chat-user">
+                                <span class="chat-label">我</span>
+                                你好
+                            </div>
+                            <div class="chat-message chat-ai">
+                                <span class="chat-label">智能助手</span>
+                                您好！我是国药四川智能助手。<br>请问有什么可以帮您？无论是整理数据表格、起草公文文案，还是解答通用业务问题，我都可以协助您。<br>请随时告诉我您的需求！
+                            </div>
+                        </div>
+                        <div class="demo-note">💡 提示：支持多轮对话，上下文自动关联</div>
+                    </div>
+                </div>
+
+                <!-- Report Demo -->
+                <div class="demo-box">
+                    <div class="demo-header">📊 智能报表与可视化</div>
+                    <div class="demo-content">
+                        <table class="demo-table">
+                            <thead>
+                                <tr>
+                                    <th>部门</th>
+                                    <th>本月销售额</th>
+                                    <th>完成率</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>销售一部</td>
+                                    <td>1,250,000.00</td>
+                                    <td>105%</td>
+                                </tr>
+                                <tr>
+                                    <td>销售二部</td>
+                                    <td>980,000.00</td>
+                                    <td>98%</td>
+                                </tr>
+                                <tr>
+                                    <td>销售三部</td>
+                                    <td>1,100,000.00</td>
+                                    <td>102%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="charts-wrapper">
+                            <div class="chart-box">
+                                <div class="chart-title">部门贡献占比</div>
+                                <div class="pie-chart"></div>
+                                <div class="legend">
+                                    <div class="legend-item"><div class="legend-color" style="background:var(--chart-color-1)"></div>一部</div>
+                                    <div class="legend-item"><div class="legend-color" style="background:var(--chart-color-2)"></div>二部</div>
+                                    <div class="legend-item"><div class="legend-color" style="background:var(--chart-color-3)"></div>三部</div>
+                                </div>
+                            </div>
+                            <div class="chart-box">
+                                <div class="chart-title">月度销售趋势</div>
+                                <svg class="line-chart-svg" viewBox="0 0 200 100" preserveAspectRatio="none">
+                                    <line x1="0" y1="25" x2="200" y2="25" stroke="#eee" stroke-width="1"/>
+                                    <line x1="0" y1="50" x2="200" y2="50" stroke="#eee" stroke-width="1"/>
+                                    <line x1="0" y1="75" x2="200" y2="75" stroke="#eee" stroke-width="1"/>
+                                    <polyline points="0,80 40,60 80,70 120,40 160,50 200,20"/>
+                                    <circle cx="0" cy="80" r="3"/>
+                                    <circle cx="40" cy="60" r="3"/>
+                                    <circle cx="80" cy="70" r="3"/>
+                                    <circle cx="120" cy="40" r="3"/>
+                                    <circle cx="160" cy="50" r="3"/>
+                                    <circle cx="200" cy="20" r="3"/>
+                                    <text x="0" y="95" class="axis-label">1 月</text>
+                                    <text x="100" y="95" class="axis-label">3 月</text>
+                                    <text x="200" y="95" class="axis-label">5 月</text>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="demo-note">💡 提示：支持表格、图片一键生成和导出</div>
+                    </div>
+                </div>
+            </div>
+            <div class="section">
+            <h2 class="section-title">快速上手指南</h2>
+            <p class="section-intro">只需三步，即可开启智能办公体验。无需复杂培训，自然语言交互即可。</p>
+            <ul class="guidelines-list">
+                <li class="guideline-item">
+                    <h4>1. 清晰表达需求</h4>
+                    <p>尽量具体地描述您想要的内容。例如，与其说“做个表”，不如说“做个包含部门和销售额的表格”。</p>
+                </li>
+                <li class="guideline-item">
+                    <h4>2. 确认生成结果</h4>
+                    <p>助手生成的内容供您参考，关键数据和结论请务必结合实际情况进行二次核对。</p>
+                </li>
+                <li class="guideline-item">
+                    <h4>3. 持续对话优化</h4>
+                    <p>如果不满意，可以直接告诉助手“换个风格”或“补充某项内容”，我会根据您的反馈调整。</p>
+                </li>
+            </ul>
+        </div>
+        </div>
+
+        <!-- ================= 第二部分：四川运维百晓生 (蓝色主题) ================= -->
+        <div class="section theme-blue">
+            <div class="security-banner">
+                <svg class="security-icon" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16h-2v-2h2v2zm0-4h-2V7h2v7z"/></svg>
+                <span>企业微信集成 · 知识库驱动 · 快速响应</span>
+            </div>
+
+            <h2 class="section-title">四川运维百晓生</h2>
+            <p class="section-intro">集成在企业微信中的智能问答机器人，无需安装额外软件，随时随地查询运维知识与公司制度。</p>
+            
+            <div class="info-box">
+                <strong>📍 使用入口：</strong> 企业微信工作台 → 国控 IAM → 智能助理 → 知识共享<br>
+                或直接在与机器人的聊天窗口提问，也可将机器人拉入群聊中使用。
+            </div>
+
+            <h3 style="text-align: center; color: var(--primary-color); margin-bottom: 20px;">核心能力 & 应用场景</h3>
+            
+            <div class="guidelines-list">
+                <div class="guideline-item">
+                    <h4>📌 场景一：运维知识查询</h4>
+                    <p>遇到系统操作、网络故障、软件安装等 IT 问题直接提问。</p>
+                    <div style="font-size: 12px; color: #666; margin-top: 5px;">
+                        包含：系统运维方案、软件安装指引 (WPS/CMS)、系统更新、计算机管理制度等。<br>
+                        <em>例："CMS 分销系统怎么安装？”"OA 密码忘记了怎么找回？”</em>
+                    </div>
+                </div>
+                <div class="guideline-item">
+                    <h4>📌 场景二：CMS 业务系统查询</h4>
+                    <p>涉及 CMS 分销或器械 CMS 系统的操作流程和常见问题。</p>
+                    <div style="font-size: 12px; color: #666; margin-top: 5px;">
+                        包含：购销存全流程、月末结账、货转卡单、直配流程、退货流程等。<br>
+                        <em>例：“器械 CMS 直配流程怎么操作？”“分销系统月末怎么结账？”</em>
+                    </div>
+                </div>
+                <div class="guideline-item">
+                    <h4>📌 场景三：公司制度文件查询</h4>
+                    <p>人事、行政、信息安全等相关制度文件随时查阅。</p>
+                    <div style="font-size: 12px; color: #666; margin-top: 5px;">
+                        包含：员工手册、人事管理、奖惩培训、信息安全、信息化管理等。<br>
+                        <em>例：“请假的流程是什么？”“奖励和处罚有哪些类型？”</em>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px;">
+                <h4 style="text-align: center; color: var(--secondary-color);">功能小结</h4>
+                <table class="demo-table">
+                    <thead>
+                        <tr>
+                            <th>维度</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>使用方式</td>
+                            <td>企业微信直接提问，无需额外安装</td>
+                        </tr>
+                        <tr>
+                            <td>权限要求</td>
+                            <td>普通员工企业微信权限即可，门槛低</td>
+                        </tr>
+                        <tr>
+                            <td>适合场景</td>
+                            <td>运维问题排查、CMS 业务操作查询、制度文件查阅</td>
+                        </tr>
+                        <tr>
+                            <td>核心价值</td>
+                            <td>不用翻文档、不用问同事，自然语言提问秒回答案</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ================= 第三部分：如何选择 (对比总结) ================= -->
+        <div class="section">
+            <h2 class="section-title">如何选择适合您的助手？</h2>
+            <p class="section-intro">两款工具适用于不同场景，拥有不同功能定位，请根据实际需求选择。</p>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th style="width: 20%;">对比维度</th>
+                        <th class="highlight-green">国药四川智能助手</th>
+                        <th class="highlight-blue">四川运维百晓生</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>核心定位</strong></td>
+                        <td>业务数据分析与文档创作</td>
+                        <td>运维知识与制度查询</td>
+                    </tr>
+                    <tr>
+                        <td><strong>部署方式</strong></td>
+                        <td>内部独立部署</td>
+                        <td>企业微信集成</td>
+                    </tr>
+                    <tr>
+                        <td><strong>数据处理</strong></td>
+                        <td><strong>支持上传内部经营数据文件</strong><br>可做分析、报表、图表</td>
+                        <td>基于预设知识库<br>不支持上传敏感业务数据</td>
+                    </tr>
+                    <tr>
+                        <td><strong>主要功能</strong></td>
+                        <td>报表生成、数据可视化、文档辅助撰写</td>
+                        <td>运维知识查询、CMS 流程查询、制度查询</td>
+                    </tr>
+                    <tr>
+                        <td><strong>准确性</strong></td>
+                        <td>生成式 AI，需人工核对数据</td>
+                        <td><strong>基于知识库检索，避免幻觉</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>推荐使用场景</strong></td>
+                        <td>需要做销售报表、分析经营数据、写总结邮件时</td>
+                        <td>需要查电脑故障、查 CMS 操作流程、查请假制度时</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="footer">
+            <p>国药四川智能助手 & 四川运维百晓生 © 2026</p>
+            <p class="highlight-text">内部资料 严禁外传 · 数据安全 人人有责</p>
+            <p style="margin-top: 10px; font-size: 12px; opacity: 0.7;">如有使用问题，请联系数字管理部</p>
+        </div>
+    </div>
+</body>
+</html>
+
+							<script>
+                            	
+							</script>
+                        </body>
+                        </html>
+                    
